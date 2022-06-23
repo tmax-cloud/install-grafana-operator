@@ -1,0 +1,74 @@
+apiVersion: integreatly.org/v1alpha1
+kind: Grafana
+metadata:
+  name: grafana
+  namespace: monitoring
+  labels:
+    grafana: hypercloud
+spec:
+#  client:
+#    preferService: true
+  deployment:
+    replicas: 2
+  ingress:
+    enabled: True
+    ingressClassName: tmax-cloud
+    hostname: grafana.192.168.9.241.nip.io
+    tlsEnabled: True
+    pathType: Prefix
+    path: "/"
+    labels:
+      ingress.tmaxcloud.org/name: grafana
+  config:
+    server:
+      domain: grafana.192.168.9.216.nip.io
+      root_url: http://%(domain)s/api/grafana/
+      serve_from_sub_path: True
+      http_port: "3000"
+    log:
+      mode: "console"
+      level: "warn"
+    log.frontend:
+      enabled: true
+    auth:
+      disable_login_form: False
+    auth.anonymous:
+      enabled: True
+    auth.generic_oauth:
+      enabled: True
+      allow_sign_up : True
+      client_id : grafana
+      client_secret : tmax_client_secret
+      scopes : "openid profile email"
+      email_attribute_path : "email"
+      auth_url : "https://hyperauth.192.168.9.241.nip.io/auth/realms/tmax/protocol/openid-connect/auth"
+      token_url : "https://hyperauth.192.168.9.241.nip.io/auth/realms/tmax/protocol/openid-connect/token"
+      api_url : "https://hyperauth.192.168.8.241.nip.io/auth/realms/tmax/protocol/openid-connect/userinfo"
+      tls_skip_verify_insecure : True
+    security:
+      allow_embedding: True
+      admin_user: admin
+      admin_password: admin
+    database:
+      type: postgres
+      host: postgres:5432
+      name: grafana
+      user: grafana
+      password: grafana
+  service:
+    name: "grafana-service"
+    type: NodePort
+    labels:
+      app: "grafana"
+      type: "grafana-service"
+  dashboardLabelSelector:
+    - matchExpressions:
+        - { key: app, operator: In, values: [grafana] }
+  resources:
+    # Optionally specify container resources
+    limits:
+      cpu: 200m
+      memory: 200Mi
+    requests:
+      cpu: 200m
+      memory: 200Mi
