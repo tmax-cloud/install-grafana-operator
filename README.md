@@ -10,11 +10,15 @@
 * hypercloud api server는 5.0.29.1 이상 버전 부터 호환
 
 ## 구성 요소
-* grafana-operator (tmaxcloudck/grafana-operator:v0.0.2)
+* grafana-operator (tmaxcloudck/grafana-operator:v0.0.3)
 
 ## Step 0. grafana-operator 설치
-* 목적 : 
+* 목적 : grafana-operator 설치
 * 순서 : 
+1. grafana-operator 이미지설정
+([setup](https://github.com/tmax-cloud/install-grafana-operator/tree/main/yaml/setup)) 폴더에 grafana-operator-deployment.yaml에 이미지 버전 설정
+
+2. kubectl apply -f ./setup 하여 설치
 
 ## Step 1. Grafana CR 생성
 
