@@ -1,0 +1,13 @@
+apiVersion: integreatly.org/v1alpha1
+kind: GrafanaDashboard
+metadata:
+  name: grafana-dashboard-from-grafana
+  namespace: monitoring
+  annotations:
+    userId: bongwoo@tmax.co.kr, isawesome@tmax.co.kr // add users here
+  labels:
+    app: grafana
+spec:
+  grafanaCom:
+    id: 10907
+  json: ""

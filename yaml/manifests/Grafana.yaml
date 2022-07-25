@@ -49,12 +49,6 @@ spec:
       allow_embedding: True
       admin_user: admin
       admin_password: admin
-    database:
-      type: postgres
-      host: postgres:5432
-      name: grafana
-      user: grafana
-      password: grafana
   service:
     name: "grafana-service"
     type: NodePort
