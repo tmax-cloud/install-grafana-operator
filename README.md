@@ -23,7 +23,10 @@
 
 ## Step 1. Grafana CR 생성
 
-* 목적 :
+* 목적 : grafana CR 설정
 * 순서: 
+1. Grafana.yaml에서 spec.config.server.domain에 grafana ingress 작성(ex grafana.tmaxcloud.org)
+2. spec.config.log.level 에 log level 설정
+3. spec.config.auth.generic_oauth에 client_id = grafana(고정), client_secret = hyperauth grafana client에서 긁어오기, auth_url = https://{hyperauth_address}/auth/realms/tmax/protocol/openid-connect/auth, token_url = https://{hyperauth_address}/auth/realms/tmax/protocol/openid-connect/token, api_url = https://{hyperauth_address}/auth/realms/tmax/protocol/openid-connect/userinfo
 
 ## (Optional)Dashboard CR 생성 방법
