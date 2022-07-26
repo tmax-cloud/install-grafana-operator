@@ -31,5 +31,7 @@
    auth_url = https://{hyperauth_address}/auth/realms/tmax/protocol/openid-connect/auth, 
    token_url = https://{hyperauth_address}/auth/realms/tmax/protocol/openid-connect/token, 
    api_url = https://{hyperauth_address}/auth/realms/tmax/protocol/openid-connect/userinfo
-
+4. kubectl apply -f nsdashboard.yaml
+5. kubectl apply -f Prometheus.yaml
+6. kubectl apply -f Grafana.yaml
 ## (Optional)Dashboard CR 생성 방법
