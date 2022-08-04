@@ -6,8 +6,8 @@ metadata:
   labels:
     grafana: hypercloud
 spec:
-#  client:
-#    preferService: true
+  client:
+    preferService: true
   deployment:
     replicas: 2
   ingress:
