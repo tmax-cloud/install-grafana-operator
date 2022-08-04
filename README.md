@@ -52,6 +52,7 @@
      grafanaCom:
        id: 10907 // grafana id
    ```
+   
 2. json으로 생성하기
    - 원하는 dashboard를 json형식으로 아래와 같이 넣어준다.
    - annotation에 해당 dashboard를 view 할 수 있는 사용자들의 email 주소(console ID)를 넣어준다.
