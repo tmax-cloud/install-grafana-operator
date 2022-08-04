@@ -11,7 +11,7 @@
 * hypercloud api server는 5.0.29.1 이상 버전 부터 호환
 
 ## 구성 요소
-* grafana-operator (tmaxcloudck/grafana-operator:v0.0.4)
+* grafana-operator (tmaxcloudck/grafana-operator:v0.0.5)
 
 ## Step 0. grafana-operator 설치
 * 목적 : grafana-operator 설치
@@ -35,3 +35,65 @@
 5. kubectl apply -f Prometheus.yaml
 6. kubectl apply -f Grafana.yaml
 ## (Optional)Dashboard CR 생성 방법
+1. grafana id로 생성하기
+   - https://grafana.com/grafana/dashboards/ 에서 원하는 dashboard의 id를 아래와 같이 넣는다
+   - annotation에 해당 dashboard를 view 할 수 있는 사용자들의 email 주소(console ID)를 넣어준다.
+   ```
+   apiVersion: integreatly.org/v1alpha1
+   kind: GrafanaDashboard
+   metadata:
+     name: grafana-dashboard-from-grafana
+     namespace: monitoring
+     annotations:
+       userId: bongwoo@tmax.co.kr, isawesome@tmax.co.kr // add users here
+     labels:
+       app: grafana
+   spec:
+     grafanaCom:
+       id: 10907 // grafana id
+   ```
+2. json으로 생성하기
+   - 원하는 dashboard를 json형식으로 아래와 같이 넣어준다.
+   - annotation에 해당 dashboard를 view 할 수 있는 사용자들의 email 주소(console ID)를 넣어준다.
+   ```
+   apiVersion: integreatly.org/v1alpha1
+   kind: GrafanaDashboard
+   metadata:
+     name: grafana-dashboard-from-grafana
+     namespace: monitoring
+     annotations:
+       userId: bongwoo@tmax.co.kr, isawesome@tmax.co.kr // add users here
+     labels:
+       app: grafana
+   spec:
+     json: >
+    {
+      "id": null,
+      "title": "Simple Dashboard2",
+      "tags": [],
+      "style": "dark",
+      "timezone": "browser",
+      "editable": true,
+      "hideControls": false,
+      "graphTooltip": 1,
+      "panels": [],
+      "time": {
+        "from": "now-6h",
+        "to": "now"
+      },
+      "timepicker": {
+        "time_options": [],
+        "refresh_intervals": []
+      },
+      "templating": {
+        "list": []
+      },
+      "annotations": {
+        "list": []
+      },
+      "refresh": "5s",
+      "schemaVersion": 17,
+      "version": 0,
+      "links": []
+    }
+   ```
