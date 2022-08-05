@@ -9,7 +9,7 @@ spec:
   client:
     preferService: true
   deployment:
-    replicas: 2
+    replicas: 1
   ingress:
     enabled: True
     ingressClassName: tmax-cloud
