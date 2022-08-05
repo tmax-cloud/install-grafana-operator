@@ -13,7 +13,7 @@ spec:
   ingress:
     enabled: True
     ingressClassName: tmax-cloud
-    hostname: grafana.192.168.9.241.nip.io
+    hostname: {GRAFANA_INGRESS}
     tlsEnabled: True
     pathType: Prefix
     path: "/"
@@ -21,7 +21,7 @@ spec:
       ingress.tmaxcloud.org/name: grafana
   config:
     server:
-      domain: grafana.192.168.9.216.nip.io
+      domain: {GRAFANA_INGRESS}
       root_url: http://%(domain)s/api/grafana/
       serve_from_sub_path: True
       http_port: "3000"
@@ -41,9 +41,9 @@ spec:
       client_secret : tmax_client_secret
       scopes : "openid profile email"
       email_attribute_path : "email"
-      auth_url : "https://hyperauth.192.168.9.241.nip.io/auth/realms/tmax/protocol/openid-connect/auth"
-      token_url : "https://hyperauth.192.168.9.241.nip.io/auth/realms/tmax/protocol/openid-connect/token"
-      api_url : "https://hyperauth.192.168.8.241.nip.io/auth/realms/tmax/protocol/openid-connect/userinfo"
+      auth_url : "https://{HYPERAUTH_INGRESS}/auth/realms/tmax/protocol/openid-connect/auth"
+      token_url : "https://{HYPERAUTH_INGRESS}/auth/realms/tmax/protocol/openid-connect/token"
+      api_url : "https://{HYPERAUTH_INGRESS}/auth/realms/tmax/protocol/openid-connect/userinfo"
       tls_skip_verify_insecure : True
     security:
       allow_embedding: True
