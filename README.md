@@ -20,6 +20,7 @@
 ([setup](https://github.com/tmax-cloud/install-grafana-operator/tree/main/yaml/setup)) 폴더에 grafana-operator-deployment.yaml에 이미지 버전 설정
 2. log level 설정
 args에 --zap-log-level = (info,debug, warn,error) 설정
+3. ([nsdashboard](https://github.com/tmax-cloud/install-grafana-operator/blob/main/yaml/setup/nsdashboard.yaml))에 {CONSOLE_URL}에 console url주소 입력(ex. https://console.tmaxcloud.org)
 4. kubectl apply -f ./setup 하여 설치
 
 ## Step 1. Grafana CR 생성
