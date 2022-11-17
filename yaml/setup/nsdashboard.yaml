@@ -864,7 +864,7 @@ data:
             },
             {
               "exemplar": true,
-              "expr": "sum(node_namespace_pod_container:container_cpu_usage_seconds_total:sum_rate{cluster=\"$cluster\", namespace=\"$namespace\"}) by (pod) / sum(kube_pod_container_resource_requests{resource=\"cpu\",cluster=\"$cluster\", namespace=\"$namespace\"}) by (pod)",
+              "expr": "sum(node_namespace_pod_container:container_cpu_usage_seconds_total:sum_rate{cluster=\"$cluster\", namespace=\"$namespace\"}) by (pod) / sum(kube_pod_container_resource_requests{resource=\"cpu\",cluster=\"$cluster\", namespace=\"$namespace\"}) by (pod)*100",
               "format": "table",
               "hide": false,
               "instant": true,
@@ -884,7 +884,7 @@ data:
             },
             {
               "exemplar": true,
-              "expr": "sum(node_namespace_pod_container:container_cpu_usage_seconds_total:sum_rate{cluster=\"$cluster\", namespace=\"$namespace\"}) by (pod) / sum(kube_pod_container_resource_limits{resource=\"cpu\",cluster=\"$cluster\", namespace=\"$namespace\"}) by (pod)",
+              "expr": "sum(node_namespace_pod_container:container_cpu_usage_seconds_total:sum_rate{cluster=\"$cluster\", namespace=\"$namespace\"}) by (pod) / sum(kube_pod_container_resource_limits{resource=\"cpu\",cluster=\"$cluster\", namespace=\"$namespace\"}) by (pod) * 100",
               "format": "table",
               "hide": false,
               "instant": true,
