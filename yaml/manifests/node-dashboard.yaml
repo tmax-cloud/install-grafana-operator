@@ -33,8 +33,8 @@ spec:
       "fiscalYearStartMonth": 0,
       "gnetId": 15172,
       "graphTooltip": 0,
-      "id": 58136,
-      "iteration": 1667541212660,
+      "id": 123,
+      "iteration": 1668663283371,
       "links": [
         {
           "$$hashKey": "object:2300",
@@ -713,6 +713,34 @@ spec:
                     "value": null
                   }
                 ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "Value #A"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "CPU Usage"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "Value #L"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "Memory Usage"
+                  },
+                  {
+                    "id": "unit",
+                    "value": "bytes"
+                  }
+                ]
               }
             ]
           },
@@ -894,6 +922,26 @@ spec:
               "interval": "",
               "legendFormat": "",
               "refId": "R"
+            },
+            {
+              "exemplar": true,
+              "expr": "(1 - avg(rate(node_cpu_seconds_total{origin_prometheus=~\"$origin_prometheus\",job=~\"$job\",mode=\"idle\"}[$interval])) by (instance)) * count(node_cpu_seconds_total{job=~\"$job\",mode='system'}) by (instance)",
+              "format": "table",
+              "hide": false,
+              "instant": true,
+              "interval": "",
+              "legendFormat": "",
+              "refId": "A"
+            },
+            {
+              "exemplar": true,
+              "expr": "sum(node_memory_Buffers_bytes{origin_prometheus=~\"$origin_prometheus\",job=~\"$job\"}) by (instance) + sum(node_memory_Cached_bytes{origin_prometheus=~\"$origin_prometheus\", job=~\"$job\"}) by (instance)",
+              "format": "table",
+              "hide": false,
+              "instant": true,
+              "interval": "",
+              "legendFormat": "",
+              "refId": "L"
             }
           ],
           "timeFrom": null,
@@ -3672,8 +3720,8 @@ spec:
             "allValue": null,
             "current": {
               "selected": false,
-              "text": "ck-master-1",
-              "value": "ck-master-1"
+              "text": "ck-gpu1",
+              "value": "ck-gpu1"
             },
             "datasource": "prometheus",
             "definition": "label_values(node_uname_info{origin_prometheus=~\"$origin_prometheus\",job=~\"$job\",nodename=~\"$hostname\"},instance)",
@@ -3822,8 +3870,8 @@ spec:
             "allValue": null,
             "current": {
               "selected": false,
-              "text": "ck-master-1",
-              "value": "ck-master-1"
+              "text": "ck-gpu1",
+              "value": "ck-gpu1"
             },
             "datasource": "prometheus",
             "definition": "label_values(node_uname_info{origin_prometheus=~\"$origin_prometheus\",job=~\"$job\",instance=~\"$node\"}, nodename)",
@@ -3852,8 +3900,8 @@ spec:
             "allValue": null,
             "current": {
               "selected": false,
-              "text": "5",
-              "value": "5"
+              "text": "4",
+              "value": "4"
             },
             "datasource": "prometheus",
             "definition": "query_result(count(node_uname_info{origin_prometheus=~\"$origin_prometheus\",job=~\"$job\"}))",
@@ -3921,5 +3969,5 @@ spec:
       "timezone": "browser",
       "title": "Node dashboard",
       "uid": "nodedashboard",
-      "version": 3
+      "version": 4
     }
