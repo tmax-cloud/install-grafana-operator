@@ -34,7 +34,7 @@ spec:
       "gnetId": 15172,
       "graphTooltip": 0,
       "id": 123,
-      "iteration": 1668663283371,
+      "iteration": 1669020188749,
       "links": [
         {
           "$$hashKey": "object:2300",
@@ -815,7 +815,7 @@ spec:
             },
             {
               "exemplar": true,
-              "expr": "sum((sum(node_memory_MemTotal_bytes - node_memory_MemAvailable_bytes) by(instance)) / node_memory_MemTotal_bytes{origin_prometheus=~\"$origin_prometheus\",job=~\"$job\"} * 100) by (instance)",
+              "expr": "sum( (node_memory_MemTotal_bytes - node_memory_MemAvailable_bytes) / node_memory_MemTotal_bytes{origin_prometheus=~\"$origin_prometheus\",job=~\"$job\"} * 100) by (instance)",
               "format": "table",
               "hide": false,
               "instant": true,
@@ -3969,5 +3969,5 @@ spec:
       "timezone": "browser",
       "title": "Node dashboard",
       "uid": "nodedashboard",
-      "version": 4
+      "version": 5
     }
