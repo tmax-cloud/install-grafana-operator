@@ -815,7 +815,7 @@ spec:
             },
             {
               "exemplar": true,
-              "expr": "sum((node_memory_Buffers_bytes{origin_prometheus=~\"$origin_prometheus\",job=~\"$job\"}+\nnode_memory_Cached_bytes{origin_prometheus=~\"$origin_prometheus\",job=~\"$job\"}) / node_memory_MemTotal_bytes{origin_prometheus=~\"$origin_prometheus\",job=~\"$job\"} * 100) by (instance)",
+              "expr": "sum((sum(node_memory_MemTotal_bytes - node_memory_MemAvailable_bytes) by(instance)) / node_memory_MemTotal_bytes{origin_prometheus=~\"$origin_prometheus\",job=~\"$job\"} * 100) by (instance)",
               "format": "table",
               "hide": false,
               "instant": true,
@@ -935,7 +935,7 @@ spec:
             },
             {
               "exemplar": true,
-              "expr": "sum(node_memory_Buffers_bytes{origin_prometheus=~\"$origin_prometheus\",job=~\"$job\"}) by (instance) + sum(node_memory_Cached_bytes{origin_prometheus=~\"$origin_prometheus\", job=~\"$job\"}) by (instance)",
+              "expr": "sum(node_memory_MemTotal_bytes - node_memory_MemAvailable_bytes) by(instance)",
               "format": "table",
               "hide": false,
               "instant": true,
