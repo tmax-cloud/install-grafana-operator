@@ -821,7 +821,7 @@ data:
                     "value": [
                       {
                         "title": "",
-                        "url": "https://console.172.23.4.106.nip.io/k8s/ns/$namespace/pods/${__value.raw}"
+                        "url": "{CONSOLE_URL}/k8s/ns/$namespace/pods/${__value.raw}"
                       }
                     ]
                   }
@@ -1413,7 +1413,7 @@ data:
                       {
                         "targetBlank": false,
                         "title": "Drill down",
-                        "url": "https://console.172.23.4.106.nip.io/k8s/ns/$namespace/pods/${__value.raw}"
+                        "url": "{CONSOLE_URL}/k8s/ns/$namespace/pods/${__value.raw}"
                       }
                     ]
                   },
@@ -1796,7 +1796,7 @@ data:
               "decimals": 2,
               "link": true,
               "linkTooltip": "Drill down to pods",
-              "linkUrl": "https://console.172.23.4.106.nip.io/k8s/ns/$namespace/pods/${__value.raw}",
+              "linkUrl": "{CONSOLE_URL}/k8s/ns/$namespace/pods/${__value.raw}",
               "pattern": "pod",
               "thresholds": [],
               "type": "number",
