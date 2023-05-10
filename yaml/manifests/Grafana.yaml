@@ -10,6 +10,10 @@ spec:
     preferService: true
   deployment:
     replicas: 1
+  dataStorage:
+    accessModes:
+    - ReadWriteOnce
+    size: {GRAFANA_PVC_SIZE}
   ingress:
     enabled: True
     ingressClassName: tmax-cloud
