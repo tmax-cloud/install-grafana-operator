@@ -35,8 +35,9 @@ args에 --zap-log-level = (info,debug, warn,error) 설정
    token_url = https://{hyperauth_address}/auth/realms/tmax/protocol/openid-connect/token, 
    api_url = https://{hyperauth_address}/auth/realms/tmax/protocol/openid-connect/userinfo
    ```
-4. kubectl apply -f Prometheus.yaml
-5. kubectl apply -f Grafana.yaml
+4. {GRAFANA_PVC_SIZE}에 PVC 용량 표기 (ex 5Gi, 10Gi)
+5. kubectl apply -f Prometheus.yaml
+6. kubectl apply -f Grafana.yaml
 ## (Optional)Dashboard CR 생성 방법
 1. grafana id로 생성하기
    - https://grafana.com/grafana/dashboards/ 에서 원하는 dashboard의 id를 아래와 같이 넣는다
