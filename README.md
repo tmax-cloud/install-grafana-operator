@@ -6,9 +6,8 @@
 * Hyperauth와 연동하여 user 별 dashboard 제공 가능.
 
 ## 사전 요구사항(권장, 필수아님)
-* single operator 5.0.29.0 이상 버전 부터 호환(k8s version 1.22)
-* single operator 5.0.26.3 이상 버전 부터 호환(k8s version 1.19)
-* hypercloud api server는 5.0.29.1 이상 버전 부터 호환
+* single operator 5.1.0.0 이상 버전 부터 호환
+* hypercloud api server 5.1.0.0 이상 버전 부터 호환
 
 ## 구성 요소
 * grafana-operator (tmaxcloudck/grafana-operator:v0.0.10)
