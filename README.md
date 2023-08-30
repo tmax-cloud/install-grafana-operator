@@ -10,7 +10,7 @@
 * hypercloud api server 5.1.0.0 이상 버전 부터 호환
 
 ## 구성 요소
-* grafana-operator (tmaxcloudck/grafana-operator:v0.0.10)
+* grafana-operator (tmaxcloudck/grafana-operator:v0.0.11)
 
 ## Step 0. grafana-operator 설치
 * 목적 : grafana-operator 설치
